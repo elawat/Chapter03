@@ -26,13 +26,32 @@ namespace Ch03_Exercise
             WriteLine($"{x}");
             WriteLine($"{y}");
 
-            int max = 500;
-            checked
+            //int max = 500;
+            //checked
+            //{
+            //    for (byte i = 0; i < max; i++)
+            //    {
+            //        WriteLine(i);
+            //    }
+            //}
+
+            WriteLine("Enter a number between 1 and 255:");
+            string input1 = ReadLine();
+            WriteLine("Enter a number between 1 and 255:");
+            string input2 = ReadLine();
+            try
             {
-                for (byte i = 0; i < 500; i++)
-                {
-                    WriteLine(i);
-                }
+                int n1 = int.Parse(input1);
+                int n2 = int.Parse(input2);
+                WriteLine($"{n1} devided by {n2} is {n1 / n2}");
+            }
+            catch (FormatException) //catching specific exception
+            {
+                WriteLine("Input string was not in correct format.");
+            }
+            catch (Exception ex) //general catch for all other types of exceptions
+            {
+                WriteLine($"{ex.GetType()} says {ex.Message}");
             }
 
 
